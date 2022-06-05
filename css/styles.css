@@ -2,30 +2,44 @@
     margin: 0;
     padding: 0;
 }
-body{
+html{
     box-sizing: border-box;
 }
-
+#container{
+    display: grid;
+    place-items: center;
+    padding: 1em;
+}
+#container h1{
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+}
 .floor-container{
-    border: 1px solid green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:baseline;
+    border: 1px solid black;
     width: 100%;
-    margin: 10px 10px;
+    min-height: 10rem;
+    display: grid;
+    grid-gap: 1em;
+    margin: 1em 1em;
+    padding: 0.5em;
+}
+.lift-btn{
+    justify-self: left;
+    align-self: center;
+    background-color: transparent;
+    width: 5%;
+    padding: 8px 0;
 }
 .floor{
     display: flex;
-    width: 100%;
-    margin: 10px 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    min-width: 100%;
     justify-content: space-around;
     align-items: center;
 }
 .floor-base{
     background-color: black;
     width: 80%;
-    height: 3px;
+    height: 1px;
 }
 
