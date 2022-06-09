@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
 }
 html{
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+button{
+    font: inherit;
 }
 #container{
     display: grid;
@@ -29,6 +34,10 @@ html{
     background-color: transparent;
     width: 5%;
     padding: 8px 0;
+    cursor: pointer;
+}
+.lift-btn:hover{
+    transition: 1s ;
 }
 .floor{
     display: flex;
@@ -39,7 +48,44 @@ html{
 }
 .floor-base{
     background-color: black;
-    width: 80%;
+    width: 75%;
     height: 1px;
+}
+
+.lift-doors{
+    height: 90px;
+    width: 50px;
+    position: absolute;
+    left: 220px;
+    overflow: hidden;
+    border: 1px solid black;
+
+}
+.left-door{
+    background-color: orange;
+    position: inherit;
+    top: 0;
+    right: 25px;
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid black;
+    transition: 2.5s  linear;
+}
+.right-door{
+    background-color: orange;
+    border-left: 1px solid black;
+    height: 100%;
+    width: 50%;
+    position: inherit;
+    top: 0;
+    left: 25px;
+    transition:  2.5s linear;
+}
+
+.left-door-close{
+    right: 48px;;
+}
+.right-door-close{
+    left: 48px;
 }
 
