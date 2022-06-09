@@ -69,7 +69,7 @@ button{
     height: 100%;
     width: 50%;
     border-right: 1px solid black;
-    transition: 2.5s  linear;
+    transition: right 2.5s  linear;
 }
 .right-door{
     background-color: orange;
@@ -79,7 +79,7 @@ button{
     position: inherit;
     top: 0;
     left: 25px;
-    transition:  2.5s linear;
+    transition: left 2.5s linear;
 }
 
 .left-door-close{
