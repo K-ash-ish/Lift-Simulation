@@ -57,6 +57,7 @@ button{
     width: 50px;
     position: absolute;
     left: 220px;
+    bottom: 284px;
     overflow: hidden;
     border: 1px solid black;
 
@@ -87,5 +88,11 @@ button{
 }
 .right-door-close{
     left: 48px;
+}
+
+/* movement of LIFT */
+.lift{
+    transition: 2s bottom linear;
+    bottom: 477px;
 }
 
