@@ -69,40 +69,45 @@ button{
     grid-column: 2;
     grid-row: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: flex-end;
 }
 
 .lift-doors{
+    position: relative;
+    background-color: blanchedalmond;
     height: 90px;
     width: 50px;
     border: 1px solid black;
-    display: flex;
+    overflow: hidden;
+    margin: 0 50px;
+}
+.door{
+    float: left;
+    position: absolute;
+    z-index: 2;
+    transition: transform 2.5s linear;
+    border: 1px solid black;
 }
 .left-door{
-   background-color: red;
+   background-color: orange;
    height: 100%;
-   width: 50%;
+   width: 50%; 
     
 }
 .right-door{
-   background-color: yellow;
+   background-color: orange;
    height: 100%;
    width: 50%;
-   
-   
-}
-.right-door:hover{
-    
+   bottom: px;
+   left: 25px;
 }
 
 .left-door-close{
-    right: 48px;
-    width: 0;
+    transform: translateX(-100%);
 }
 .right-door-close{
-    left: 48px;
-    
+    transform: translateX(100%);  
 }
 
 /* movement of LIFT */
