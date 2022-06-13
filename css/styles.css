@@ -115,7 +115,7 @@ button{
     transform: translateY(-178px);
 }
 
-@media (max-width:1000px) {
+@media (max-width:850px) {
     h3{
         font-size: 1rem;
         text-align: center;
