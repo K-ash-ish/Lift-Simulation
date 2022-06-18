@@ -11,46 +11,29 @@
 
     <div id="container">
         <h1>Lift Simulation</h1>
-        <form class="lift-form" action="">
-            <label for="floor-numbers">Enter Number of Floors:  <input type="text"> </label>
-            <label for="lift-numbers">Enter Number of Lifts:  <input type="text"></label>
-        </form>
-        <div class="floor-container">
-            <div class="btn-container">
-                <button class="lift-btn up-btn">Up</button>
-                <button class="lift-btn down-btn">Down</button>
-            </div>
-            <div class="lift-container">
-                <!-- <div class="lift-doors">
-                    <div class="door left-door"></div>
-                    <div class="door right-door"></div>
-                </div> -->
-            </div>
-            
-            <div class="floor">
-                <div class="floor-base"></div>
-            </div>
-            <h3 class="floor-number">Floor 2</h3>
+        <div class="lift-floor-gen">
+            <button class="btn add-floor">Add Floors</button>
+            <button class="btn add-lift">Add Lifts</button>
         </div>
-
-        <div class="floor-container">
-            <div class="btn-container">
-                <button class="lift-btn down-btn">Down</button>
-            </div>
-            <div class="lift-container">
-                <div class="lift-doors">
-                    <div class="door left-door"></div>
-                    <div class="door right-door"></div>
+        <div class="floors">
+            <div class="floor-container">
+                <div class="btn-container">
+                    <button class="lift-btn down-btn">Down</button>
                 </div>
-
-             
+                <div class="lift-container">
+                    <div class="lift-doors">
+                        <div class="door left-door"></div>
+                        <div class="door right-door"></div>
+                    </div>
+                </div>
+                
+                <div class="floor">
+                    <div class="floor-base"></div>
+                </div>
+                <h3 class="floor-number">Floor 1</h3>
             </div>
-            
-            <div class="floor">
-                <div class="floor-base"></div>
-            </div>
-            <h3 class="floor-number">Floor 1</h3>
         </div>
+            
 
     </div>
 

@@ -10,22 +10,22 @@ html{
 button{
     font: inherit;
 }
-#container{
+#container, #container>.floors{
     display: flex;
     flex-direction: column;
     text-align: center;
     gap: 1rem;
     padding: 1rem;
 }
-.lift-form{
-    display: grid;
-    place-content: center;
-    text-align: right;
-    gap: 10px;
-    margin: 10px 0;
+.lift-floor-gen{
+    display: flex;
+    justify-content: center;
 }
-.lift-form input{
-    padding: 2px 5px;
+.btn{
+    background-color: transparent;
+    padding: 5px 15px;
+    margin: 5px 10px;
+    cursor: pointer;
 }
 .floor-container{
     border: 1px solid black;

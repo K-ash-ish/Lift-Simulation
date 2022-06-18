@@ -1,36 +1,44 @@
 
-// const liftBtn = document.querySelectorAll(".lift-btn");
-// const doors = document.querySelectorAll(".door")
-// const leftDoor = document.querySelector(".left-door");
-// const rightDoor = document.querySelector(".right-door");
-// const lift = document.querySelector(".lift-doors")
-// liftBtn.forEach(btn => {
-//     btn.addEventListener("click", (e)=>{
-//        openDoors();       
-//        setTimeout(function(){
-//            closeDoors();
-//         }, 5000);
-//        setTimeout(function(){
-//            moveLiftUp(btn)
-           
-//         }, 8000);
-//     })
-// });
-// function openDoors(){
-//     leftDoor.classList.add("left-door-close");
-//     rightDoor.classList.add("right-door-close");
-//     console.log("door open")
-// }
-// function closeDoors(){
-//     leftDoor.classList.remove("left-door-close");
-//     rightDoor.classList.remove("right-door-close");
-//     console.log("door close")
-// }
-// function moveLiftUp(btn){
-//     lift.classList.add("lift")
-//     console.log(btn)
-//     console.log("lift moving to other floor...");    
-    
-// }
+let floorNumbers = 1;
+let lifts = 1;
+const floors = document.querySelector(".floors");
+const addFloorBtn = document.querySelector(".add-floor");
+
+
+addFloorBtn.addEventListener("click", ()=>{
+    floorNumbers++;
+    addFloor(floorNumbers)    ;
+})
+
+
+function addFloor(floorNumbers){
+    let floorContainer = document.createElement("div");
+    floorContainer.classList.add("floor-container")
+    let floor = `
+            <div class="btn-container">
+                <button class="lift-btn up-btn">Up</button>
+                <button class="lift-btn down-btn">Down</button>
+            </div>
+            <div class="lift-container">
+                <!-- <div class="lift-doors">
+                    <div class="door left-door"></div>
+                    <div class="door right-door"></div>
+                </div> -->
+            </div>
+            
+            <div class="floor">
+                <div class="floor-base"></div>
+            </div>
+            <h3 class="floor-number">Floor ${floorNumbers}</h3>
+    `;
+    floorContainer.innerHTML= floor;
+    floors.prepend(floorContainer);
+}
+
+function addLifts(){
+    if(lifts<=5){
+        
+    }
+}
 
 
