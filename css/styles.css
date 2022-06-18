@@ -11,14 +11,18 @@ button{
     font: inherit;
 }
 #container{
-    display: grid;
-    place-items: center;
-    gap: 1em;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
 }
-#container h1{
-    margin-top: 0.3em;
-    margin-bottom: 0.8em;
+.lift-form{
+    display: grid;
+    place-content: center;
+    text-align: right;
+    gap: 10px;
+    margin: 10px 0;
 }
 .floor-container{
     border: 1px solid black;
@@ -35,6 +39,7 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 .lift-btn{
     justify-self: left;
@@ -120,13 +125,16 @@ button{
         font-size: 1rem;
         text-align: center;
     }
+    .lift-form{
+        font-size: 14px;
+    }
     .lift-doors{
         height: 60px;
         width: 40px;
     }
    .lift-btn{
-       width: 40px;
-       font-size: 12px;
+      width: 30px;
+      font-size: 8px;
    }
 }
 
