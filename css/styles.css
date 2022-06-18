@@ -24,6 +24,9 @@ button{
     gap: 10px;
     margin: 10px 0;
 }
+.lift-form input{
+    padding: 2px 5px;
+}
 .floor-container{
     border: 1px solid black;
     width: 100%;
