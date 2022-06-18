@@ -27,6 +27,16 @@ button{
     margin: 5px 10px;
     cursor: pointer;
 }
+.banner{
+    background-color: red;
+    padding: 8px 0;
+    color: white;
+    display: none;
+}
+.banner-show{
+    display: block;
+
+}
 .floor-container{
     border: 1px solid black;
     width: 100%;
@@ -125,15 +135,16 @@ button{
 
 @media (max-width:850px) {
     h3{
-        font-size: 1rem;
+        font-size: 10px;
         text-align: center;
     }
     .lift-form{
         font-size: 14px;
     }
     .lift-doors{
-        height: 60px;
-        width: 40px;
+        height: 30px;
+        width: 15px;
+        margin: 0 10px;
     }
    .lift-btn{
       width: 30px;

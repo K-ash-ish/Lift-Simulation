@@ -2,9 +2,15 @@
 let floorNumbers = 1;
 let lifts = 1;
 const floors = document.querySelector(".floors");
+const liftContainer = document.querySelector(".lift-container");
 const addFloorBtn = document.querySelector(".add-floor");
+const addLiftBtn = document.querySelector(".add-lift");
+const banner = document.querySelector(".banner");
 
-
+addLiftBtn.addEventListener("click", ()=>{
+    lifts++;
+    addLifts();
+})
 addFloorBtn.addEventListener("click", ()=>{
     floorNumbers++;
     addFloor(floorNumbers)    ;
@@ -36,8 +42,21 @@ function addFloor(floorNumbers){
 }
 
 function addLifts(){
-    if(lifts<=5){
-        
+    if(lifts<7){
+        let liftDoor = document.createElement("div");
+        liftDoor.classList.add("lift-doors");
+        let lift = `
+        <div class="door left-door"></div>
+        <div class="door right-door"></div>
+        `
+        liftDoor.innerHTML = lift;
+        liftContainer.append(liftDoor)
+    }
+    else{
+        banner.classList.add("banner-show");
+        setTimeout(() => {
+            banner.classList.remove("banner-show");
+        }, 1000);
     }
 }
 
