@@ -79,9 +79,8 @@ function addLifts(){
     }
 }
 function liftMovements(e){
-
     let move = e.item(2)*(-178);
-    lift.style.transition = "transform 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95)"
+    lift.style.transition = "transform 2.5s linear"
     lift.style.transform= "translateY("+move + "px)";
 }
 
