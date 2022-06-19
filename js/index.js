@@ -1,35 +1,54 @@
 
-let floorNumbers = 1;
+let floorNumbers = 0;
 let lifts = 1;
 const floors = document.querySelector(".floors");
-const liftContainer = document.querySelector(".lift-container");
 const addFloorBtn = document.querySelector(".add-floor");
 const addLiftBtn = document.querySelector(".add-lift");
 const banner = document.querySelector(".banner");
+const liftContainer = document.querySelector(".lift-container");
+const upBtn = document.querySelector(".up-btn");
+const downBtn = document.querySelector(".down-btn");
+const liftBtn = document.querySelectorAll(".lift-btn");
+const leftDoor = document.querySelector('.left-door');
+const rightDoor = document.querySelector(".right-door");
+const lift = document.querySelector(".lift-doors")
 
+//adding lifts
 addLiftBtn.addEventListener("click", ()=>{
     lifts++;
     addLifts();
 })
+
+// adding floors
 addFloorBtn.addEventListener("click", ()=>{
     floorNumbers++;
     addFloor(floorNumbers)    ;
 })
 
-
+// door animation
+document.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("lift-btn")){
+        // leftDoor.style.transform = "translateX(-85%)"
+        // rightDoor.style.transform = "translateX(85%)" 
+        // setTimeout(() => {
+        //     doorClose();   
+        // }, 5000);    
+        liftMovements(e.target.classList);
+    }
+})
+function doorClose(){
+    leftDoor.style.transform = "translateX(0)"
+    rightDoor.style.transform = "translateX(0)" 
+}
 function addFloor(floorNumbers){
     let floorContainer = document.createElement("div");
     floorContainer.classList.add("floor-container")
     let floor = `
             <div class="btn-container">
-                <button class="lift-btn up-btn">Up</button>
-                <button class="lift-btn down-btn">Down</button>
+                <button class="lift-btn up-btn   ${floorNumbers}">Up</button>
+                <button class="lift-btn down-btn ${floorNumbers}">Down</button>
             </div>
             <div class="lift-container">
-                <!-- <div class="lift-doors">
-                    <div class="door left-door"></div>
-                    <div class="door right-door"></div>
-                </div> -->
             </div>
             
             <div class="floor">
@@ -59,5 +78,10 @@ function addLifts(){
         }, 1000);
     }
 }
+function liftMovements(e){
 
+    let move = e.item(2)*(-178);
+    lift.style.transition = "transform 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95)"
+    lift.style.transform= "translateY("+move + "px)";
+}
 
