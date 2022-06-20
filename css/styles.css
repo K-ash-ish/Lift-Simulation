@@ -137,6 +137,9 @@ button{
     #container, #container>.floors{
         margin: 0.3rem;
     }
+    .btn-container{
+        margin: 0 5px;
+    }
    .floor-container{
     font-size: 0.7em;
    }

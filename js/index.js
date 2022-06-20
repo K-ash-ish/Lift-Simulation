@@ -18,9 +18,12 @@ addLiftBtn.addEventListener("click", ()=>{
     lifts++;
     let maxLifts;
     console.log()
-    if(window.innerWidth<600){
+    if(window.innerWidth<600&& window.innerWidth > 400){
         maxLifts= 5;
         addLifts(maxLifts)
+    }
+    else if (window.innerWidth<400){
+        addLifts(4)
     }
     else{
         maxLifts = 8
