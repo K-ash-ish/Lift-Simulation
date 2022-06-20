@@ -12,7 +12,7 @@ const liftBtn = document.querySelectorAll(".lift-btn");
 const leftDoor = document.querySelector('.left-door');
 const rightDoor = document.querySelector(".right-door");
 const lift = document.querySelector(".lift-doors")
-
+let floorArray = [];
 //adding lifts
 addLiftBtn.addEventListener("click", ()=>{
     lifts++;
@@ -32,7 +32,9 @@ document.addEventListener("click", (e)=>{
         // rightDoor.style.transform = "translateX(85%)" 
         // setTimeout(() => {
         //     doorClose();   
-        // }, 5000);    
+        // }, 5000);   
+        floorArray.push(e.target.classList.item(2))
+        console.log(floorArray) 
         liftMovements(e.target.classList);
     }
 })
@@ -81,6 +83,6 @@ function addLifts(){
 function liftMovements(e){
     let move = e.item(2)*(-178);
     lift.style.transition = "transform 2.5s linear"
-    lift.style.transform= "translateY("+move + "px)";
+    lift.style.transform= "translateY(" + move + "px)";
 }
 
