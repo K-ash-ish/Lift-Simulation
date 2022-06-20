@@ -15,7 +15,7 @@ button{
     flex-direction: column;
     text-align: center;
     gap: 1rem;
-    padding: 1rem;
+    margin: 1rem;
 }
 .lift-floor-gen{
     display: flex;
@@ -134,21 +134,20 @@ button{
 }
 
 @media (max-width:850px) {
-    h3{
-        font-size: 10px;
-        text-align: center;
+    #container, #container>.floors{
+        margin: 0.3rem;
     }
-    .lift-form{
-        font-size: 14px;
-    }
-    .lift-doors{
-        height: 30px;
-        width: 15px;
-        margin: 0 10px;
-    }
+   .floor-container{
+    font-size: 0.7em;
+   }
    .lift-btn{
-      width: 30px;
-      font-size: 8px;
+    width: 40px;
+   }
+   .floor-base{
+    width: 90%;
+   }
+   .lift-doors{
+    margin: 0 20px;
    }
 }
 

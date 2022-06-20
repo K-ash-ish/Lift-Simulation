@@ -16,7 +16,16 @@ let floorArray = [];
 //adding lifts
 addLiftBtn.addEventListener("click", ()=>{
     lifts++;
-    addLifts();
+    let maxLifts;
+    console.log()
+    if(window.innerWidth<600){
+        maxLifts= 5;
+        addLifts(maxLifts)
+    }
+    else{
+        maxLifts = 8
+        addLifts(maxLifts);
+    }
 })
 
 // adding floors
@@ -62,8 +71,8 @@ function addFloor(floorNumbers){
     floors.prepend(floorContainer);
 }
 
-function addLifts(){
-    if(lifts<7){
+function addLifts(maxLifts){
+    if(lifts<maxLifts){
         let liftDoor = document.createElement("div");
         liftDoor.classList.add("lift-doors");
         let lift = `
