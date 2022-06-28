@@ -119,20 +119,8 @@ button{
     left: 50%;
 }
 
-.left-door-close{
-    transform: translateX(-85%);
-}
-.right-door-close{
-    transform: translateX(85%);  
-}
 
-/* movement of LIFT */
-
-.lift{
-    transition: transform 2.5s linear;
-    transform: translateY(-178px);
-}
-
+/* mobile responsive */
 @media (max-width:850px) {
     #container, #container>.floors{
         margin: 0.3rem;
