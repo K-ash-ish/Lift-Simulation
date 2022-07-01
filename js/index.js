@@ -2,14 +2,21 @@
 let floorNumbers = 0;
 let lifts = 1;
 let floorQueue = [];
-const floors = document.querySelector(".floors");
-const addFloorBtn = document.querySelector(".add-floor");
-const addLiftBtn = document.querySelector(".add-lift");
-const banner = document.querySelector(".banner");
+
+const addFloorBtn = document.querySelector(".add-floor");//event listner
+const addLiftBtn = document.querySelector(".add-lift");//event listner
+
+const lift = document.querySelector(".lift-doors");
 const liftContainer = document.querySelector(".lift-container");
-const leftDoor = document.querySelector('.left-door');
-const rightDoor = document.querySelector(".right-door");
-const lift = document.querySelector(".lift-doors")
+
+const DomElements = ()=>{
+    const floors = document.querySelector(".floors");
+    const banner = document.querySelector(".banner");
+    const leftDoor = document.querySelector('.left-door');
+    const rightDoor = document.querySelector(".right-door");
+    return {floors, banner, leftDoor, rightDoor};
+}
+
 //adding lifts
 addLiftBtn.addEventListener("click", ()=>{
     lifts++;
@@ -27,9 +34,11 @@ addLiftBtn.addEventListener("click", ()=>{
     }
 })
 function addLifts(maxLifts){
+    let {banner} = DomElements();
     if(lifts<maxLifts){
         let liftDoor = document.createElement("div");
         liftDoor.classList.add("lift-doors");
+        liftDoor.dataset.currentfloor = 0;
         let lift = `
         <div class="door left-door"></div>
         <div class="door right-door"></div>
@@ -51,6 +60,7 @@ addFloorBtn.addEventListener("click", ()=>{
     addFloor(floorNumbers)    ;
 })
 function addFloor(floorNumbers){
+    let {floors} = DomElements();
     let floorContainer = document.createElement("div");
     floorContainer.classList.add("floor-container")
     let floor = `
@@ -70,23 +80,16 @@ function addFloor(floorNumbers){
     floors.prepend(floorContainer);
 }
 
-// door animation
 document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("lift-btn")){
-        // leftDoor.style.transform = "translateX(-85%)"
-        // rightDoor.style.transform = "translateX(85%)" 
-        // setTimeout(() => {
-        //     doorClose();   
-        // }, 5000);   
         targetFloor = e.target.classList.item(2);
         checkLiftStatus(targetFloor);
-        // liftMovements(e.target.classList);
     }
 })
 
 function checkLiftStatus(targetFloor){
     console.log("Checking if lift is busy or not")
-
+    
     if(!lift.classList.contains("busy")){
         console.log("Lift not busy moving to the floor")
         moveLift(targetFloor);
@@ -98,11 +101,10 @@ function checkLiftStatus(targetFloor){
 }
 
 function moveLift(targetFloor){
-    console.log("moving to " + targetFloor);
+    let {leftDoor, rightDoor} = DomElements();
+    
     let currentFloor = lift.dataset.currentfloor;
-    console.log(currentFloor + " current floor")
     let duration = Math.abs(targetFloor - currentFloor) * 2
-    console.log(duration + " duration")
     let move = targetFloor*(-178);
     lift.style.transition = `transform ${duration}s linear`;
     lift.style.transform= "translateY(" + move + "px)";
@@ -121,7 +123,6 @@ function moveLift(targetFloor){
 
     setTimeout(() => {
         lift.classList.remove("busy")
-        console.log(floorQueue);
         if(floorQueue.length){
             moveLift(floorQueue.shift());
         }
