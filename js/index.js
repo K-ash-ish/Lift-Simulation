@@ -108,7 +108,7 @@ function moveLift(targetFloor, lift){
     lift.style.transform= "translateY(" + move + "px)";
     lift.classList.add("busy");
     lift.dataset.currentfloor = targetFloor;
-    doors = lift.children;
+    doors = Array.from(lift.children);
     setTimeout(() => {
         leftDoor.style.transform = "translateX(-85%)"
         rightDoor.style.transform = "translateX(85%)" 
