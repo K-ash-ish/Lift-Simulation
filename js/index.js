@@ -89,16 +89,15 @@ document.addEventListener("click", (e)=>{
 
 function checkLiftStatus(targetFloor){
     let {lift} = DomElements();
-    for( i = 0 ; i < lift.length ; i++){
-        if(!lift[i].classList.contains("busy")){
-            moveLift(targetFloor, lift[i]);
+    let lifts = Array.from(lift)
+    let i;
+    for( i = 0 ; i < lifts.length ; i++){
+        if(!lifts[i].classList.contains("busy")){
+            moveLift(targetFloor, lifts[i]);
             return;
         }
-        else {
-            console.log(floorQueue)
-            floorQueue.push(targetFloor)
-        }
     } 
+    floorQueue.push(targetFloor)   
 }
 function moveLift(targetFloor, lift){
     let {leftDoor, rightDoor} = DomElements();
@@ -109,7 +108,7 @@ function moveLift(targetFloor, lift){
     lift.style.transform= "translateY(" + move + "px)";
     lift.classList.add("busy");
     lift.dataset.currentfloor = targetFloor;
-    
+    doors = lift.children;
     setTimeout(() => {
         leftDoor.style.transform = "translateX(-85%)"
         rightDoor.style.transform = "translateX(85%)" 
