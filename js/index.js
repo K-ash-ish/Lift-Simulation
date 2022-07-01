@@ -6,7 +6,6 @@ let floorQueue = [];
 const addFloorBtn = document.querySelector(".add-floor");//event listner
 const addLiftBtn = document.querySelector(".add-lift");//event listner
 
-const lift = document.querySelector(".lift-doors");
 const liftContainer = document.querySelector(".lift-container");
 
 const DomElements = ()=>{
@@ -14,7 +13,8 @@ const DomElements = ()=>{
     const banner = document.querySelector(".banner");
     const leftDoor = document.querySelector('.left-door');
     const rightDoor = document.querySelector(".right-door");
-    return {floors, banner, leftDoor, rightDoor};
+    const lift = document.querySelectorAll(".lift-doors");
+    return {floors, banner, leftDoor, rightDoor, lift};
 }
 
 //adding lifts
@@ -88,21 +88,20 @@ document.addEventListener("click", (e)=>{
 })
 
 function checkLiftStatus(targetFloor){
-    console.log("Checking if lift is busy or not")
-    
-    if(!lift.classList.contains("busy")){
-        console.log("Lift not busy moving to the floor")
-        moveLift(targetFloor);
-    }
-    else{
-        floorQueue.push(targetFloor)
-        console.log("lift is busy queuing the floor");
-    }
+    let {lift} = DomElements();
+    for( i = 0 ; i < lift.length ; i++){
+        if(!lift[i].classList.contains("busy")){
+            moveLift(targetFloor, lift[i]);
+            return;
+        }
+        else {
+            console.log(floorQueue)
+            floorQueue.push(targetFloor)
+        }
+    } 
 }
-
-function moveLift(targetFloor){
+function moveLift(targetFloor, lift){
     let {leftDoor, rightDoor} = DomElements();
-    
     let currentFloor = lift.dataset.currentfloor;
     let duration = Math.abs(targetFloor - currentFloor) * 2
     let move = targetFloor*(-178);
@@ -114,21 +113,17 @@ function moveLift(targetFloor){
     setTimeout(() => {
         leftDoor.style.transform = "translateX(-85%)"
         rightDoor.style.transform = "translateX(85%)" 
-    }, duration * 1500);  
+    }, duration * 1500 + 1000);  
 
     setTimeout(() => {
         leftDoor.style.transform = "none"
         rightDoor.style.transform = "none" 
-    }, 3000 +(1500 * duration)); 
-
+    }, duration * 1500 + 3000); 
     setTimeout(() => {
         lift.classList.remove("busy")
-        if(floorQueue.length){
-            moveLift(floorQueue.shift());
+        if(floorQueue){
+            moveLift(floorQueue.shift(), lift);
         }
-        else{
-            console.log("No more CALLLLLSS.....")
-        }
-    }, 6000 + ( duration * 1500));
+    },  duration * 1500 + 6000);
 
 }
