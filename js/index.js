@@ -110,18 +110,18 @@ function moveLift(targetFloor, lift){
     setTimeout(() => {
         lift.children[0].classList.add("left-door-open");
         lift.children[1].classList.add("right-door-open");
-    }, duration * 2000 + 1000);  
+    }, duration * 1700 + 1000);  
 
     setTimeout(() => {
         lift.children[0].classList.remove("left-door-open");
         lift.children[1].classList.remove("right-door-open");
-    }, duration * 2000 + 3000); 
+    }, duration * 1700 + 3000); 
 
     setTimeout(() => {
         lift.classList.remove("busy")
         if(floorQueue.length){
             moveLift(floorQueue.shift(), lift);
         }
-    },  duration * 1500 + 6000);
+    },  duration * 1700 + 6000);
     
 }
