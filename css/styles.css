@@ -118,6 +118,14 @@ button{
     width: 50%;
     left: 50%;
 }
+.left-door-open{
+    transform: translateX(-100%);
+}
+.right-door-open{
+    transform: translateX(100%);
+}
+
+
 
 
 /* mobile responsive */

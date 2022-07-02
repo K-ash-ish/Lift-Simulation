@@ -100,7 +100,6 @@ function checkLiftStatus(targetFloor){
     floorQueue.push(targetFloor)   
 }
 function moveLift(targetFloor, lift){
-    let {leftDoor, rightDoor} = DomElements();
     let currentFloor = lift.dataset.currentfloor;
     let duration = Math.abs(targetFloor - currentFloor) * 2
     let move = targetFloor*(-178);
@@ -108,21 +107,21 @@ function moveLift(targetFloor, lift){
     lift.style.transform= "translateY(" + move + "px)";
     lift.classList.add("busy");
     lift.dataset.currentfloor = targetFloor;
-    doors = Array.from(lift.children);
     setTimeout(() => {
-        leftDoor.style.transform = "translateX(-85%)"
-        rightDoor.style.transform = "translateX(85%)" 
-    }, duration * 1500 + 1000);  
+        lift.children[0].classList.add("left-door-open");
+        lift.children[1].classList.add("right-door-open");
+    }, duration * 2000 + 1000);  
 
     setTimeout(() => {
-        leftDoor.style.transform = "none"
-        rightDoor.style.transform = "none" 
-    }, duration * 1500 + 3000); 
+        lift.children[0].classList.remove("left-door-open");
+        lift.children[1].classList.remove("right-door-open");
+    }, duration * 2000 + 3000); 
+
     setTimeout(() => {
         lift.classList.remove("busy")
-        if(floorQueue){
+        if(floorQueue.length){
             moveLift(floorQueue.shift(), lift);
         }
     },  duration * 1500 + 6000);
-
+    
 }
