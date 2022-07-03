@@ -79,7 +79,7 @@ function addFloor(floorNumbers){
     floorContainer.innerHTML= floor;
     floors.prepend(floorContainer);
 }
-
+// adding event listner to up-down buttons
 document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("lift-btn")){
         targetFloor = e.target.classList.item(2);
