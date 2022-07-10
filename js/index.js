@@ -82,7 +82,8 @@ function addFloor(floorNumbers){
 // adding event listner to up-down buttons
 document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("lift-btn")){
-        targetFloor = e.target.classList.item(2);
+
+        let targetFloor = e.target.classList.item(2);
         checkLiftStatus(targetFloor);
     }
 })
